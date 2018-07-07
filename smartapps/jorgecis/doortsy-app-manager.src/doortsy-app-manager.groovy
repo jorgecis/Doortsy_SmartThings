@@ -25,7 +25,7 @@ preferences {
 	page(name: "deviceDiscovery", title: "Remotsy Relay Device Setup", content: "deviceDiscovery")
 }
 
-private searchTarget() {"remotsy:ecp32"}
+private searchTarget() {"remotsy:esp32"}
 
 def deviceDiscovery() {
 	def options = [:]
@@ -127,8 +127,8 @@ def addDevices() {
 
 		if (!d) {
 			log.debug "Creating Generic UPnP Device with dni: ${selectedDevice.value.mac}"
-			addChildDevice("smartthings", "Generic UPnP Device", selectedDevice.value.mac, selectedDevice?.value.hub, [
-				"label": selectedDevice?.value?.name ?: "Generic UPnP Device",
+			addChildDevice("jorgecis", "ESP32 Switch", selectedDevice.value.mac, selectedDevice?.value.hub, [
+				"label": selectedDevice?.value?.name ?: "ESP32 Switch",
 				"data": [
 					"mac": selectedDevice.value.mac,
 					"ip": selectedDevice.value.networkAddress,
@@ -142,7 +142,6 @@ def addDevices() {
 def ssdpHandler(evt) {
 	def description = evt.description
 	def hub = evt?.hubId
-
 	def parsedEvent = parseLanMessage(description)
 	parsedEvent << ["hub":hub]
 

@@ -54,6 +54,11 @@ def installed() {
 	initialize()
 }
 
+def uninstalled() {
+    log.debug "Called uninstall"
+    removeChildDevices(getChildDevices())
+}
+
 def updated() {
 	log.debug "Updated with settings: ${settings}"
 	unsubscribe()
@@ -178,4 +183,15 @@ private Integer convertHexToInt(hex) {
 
 private String convertHexToIP(hex) {
 	[convertHexToInt(hex[0..1]),convertHexToInt(hex[2..3]),convertHexToInt(hex[4..5]),convertHexToInt(hex[6..7])].join(".")
+}
+
+
+
+
+private removeChildDevices(delete) {
+    delete.each {
+        log.debug "Remove "
+        log.debug it.deviceNetworkId
+        deleteChildDevice(it.deviceNetworkId)
+    }
 }

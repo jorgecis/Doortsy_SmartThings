@@ -16,18 +16,13 @@
  */
  metadata {
  	definition (name: "ESP32 Switch", namespace: "jorgecis", author: "Jorge Cisneros") {
-        capability "Switch"
+        capability "Door Control"
         capability "Refresh"
-        capability "Button"
+        capability "switch" 
         
         command "push1"
         command "setOffline"
     }
-
-    // simulator metadata
-    simulator {}
- 
-
 
     // UI tile definitions
     tiles {
@@ -74,6 +69,16 @@ def parse(String description) {
         
  	}
  result
+}
+
+def off() {
+	log.debug "Power OFF Event"
+    push1()
+}
+
+def on() {
+	log.debug "Power ON Event"
+    push1()
 }
 
 

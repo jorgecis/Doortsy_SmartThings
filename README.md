@@ -1,4 +1,4 @@
-# SmartThings code to use ESP#@_Relay [Dooortsy]
+# SmartThings code to use ESP32_Relay [Dooortsy]
 ---
 
 ## Instalation 

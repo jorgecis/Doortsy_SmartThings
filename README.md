@@ -48,3 +48,4 @@ That's it in the IDE... Just install "Doortsy Manager" from the Marketplace > My
 When updates are available to the source code the Link color change from black in the IDE.
 
 You can buy it at [Ebay](https://www.ebay.com/itm/223436674701)
+or in the [Tindie Store](https://www.tindie.com/products/13404/)
